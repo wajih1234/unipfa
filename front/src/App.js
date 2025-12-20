@@ -5,6 +5,7 @@ import Home  from './pages/Home';
 import Sign from './pages/Sign';
 import Login from './pages/Login';
 import Teach from './pages/Teach';
+import Addproject from './pages/Addproject';
 function App() {
   return (
     <Router>
@@ -13,6 +14,7 @@ function App() {
       <Route path="/sign" element={<Sign />} />
       <Route path="/home" element={<Home />} />
       <Route path='/teach' element={<Teach />}/>
+      <Route path='/addproject' element={<Addproject />}/>
     </Routes> 
   </Router>
   )

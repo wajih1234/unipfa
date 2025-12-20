@@ -1,0 +1,139 @@
+/* Container */
+.add-project-container {
+  min-height: 100vh;
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form Card */
+.form-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Form Header */
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f766e;
+  margin-bottom: 40px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #0f766e 0%, #0d5f57 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 16px rgba(15, 118, 110, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #0d5f57 0%, #0a4a44 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 118, 110, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+button[type="submit"]:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Error Message */
+p {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 4px solid #ef4444;
+  margin-top: 20px;
+  animation: slideDown 0.3s ease;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 30px 25px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  button[type="submit"] {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-project-container {
+    padding: 20px 15px;
+  }
+
+  .form-card {
+    padding: 25px 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+  
+  input[type="text"],
+  textarea {
+    padding: 14px 16px;
+  }
+}
