@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import {useDebounce} from 'react-use'
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
 const Home = () => {
@@ -10,7 +11,12 @@ const Home = () => {
   const [teacherFilter, setTeacherFilter] = useState("");
   const [name, setName] = useState("");
   const [view, setView] = useState("projects"); 
+  const [debouncedteacherfilter, setDebouncedteacherfilter] = useState("");
 
+
+
+  // optimize
+  useDebounce(()=>setDebouncedteacherfilter(teacherFilter),800,[teacherFilter]);
   
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -144,10 +150,12 @@ const Home = () => {
                  <tr><td colSpan="4">Loading teachers...</td></tr>
                   )            : teachers.length > 0 ? (
                    teachers
-               .filter(teacher => {
-          if (!teacherFilter) return true; 
-          return teacher.domain?.toLowerCase().includes(teacherFilter.toLowerCase());
-             })
+              .filter(teacher => {
+  if (!debouncedteacherfilter) return true;
+  return teacher.domain
+    ?.toLowerCase()
+    .includes(debouncedteacherfilter.toLowerCase());
+})
     .map(teacher => (
       <tr key={teacher._id}>
         <td>{teacher._id}</td>
