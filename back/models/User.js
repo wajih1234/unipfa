@@ -22,6 +22,18 @@ const UserSchema = new mongoose.Schema({
     default: 'student', 
   
   },
+  isVerified: {
+  type: Boolean,
+  default: false
+},
+otp: {
+  type: String,
+  default: null
+},
+otpExpires: {
+  type: Date,
+  default: null
+},
   domain: {
     type: String,
     required: function () {
